@@ -11,7 +11,10 @@ public class Main {
         reader = new Scanner(System.in);
         videoGame = new VideoGame();
     }
-
+    /**
+     * main()
+     * @param args String[]
+     */
     public static void main(String[] args){
         Main main = new Main();
         main.cleanConsole();
@@ -27,7 +30,10 @@ public class Main {
 		}while(option != 0);
 		main.reader.close();
     }
-
+    /**
+     * getOptionShowMenu()
+     * @return option int
+     */
     public int getOptionShowMenu(){
         int option = 0;
 		System.out.println("<<<<<  Menu >>>>>");
@@ -49,7 +55,11 @@ public class Main {
 		option = reader.nextInt(); 
 		return option; 
     }
-
+    
+    /**
+     * executeOption()
+     * @param option int
+     */
     public void executeOption(int option){
 
         switch (option) {
@@ -69,10 +79,15 @@ public class Main {
             }
         }
     }
-
+    /**
+     * cleanConsole()
+     */
     public void cleanConsole(){
         System.out.print("\033[H\033[2J");
     }
+    /**
+     * uiSetResolution()
+     */
     public void uiSetResolution(){
         System.out.println("<<<<< Welcome to Video Game >>>>>");
         System.out.println("Resolutions:");
@@ -91,7 +106,9 @@ public class Main {
         videoGame.setResolution(optionResolution);
     }
 
-
+    /**
+     * uiRegisterPlayer()
+     */
     public void uiRegisterPlayer(){
         System.out.println("Register player");
         System.out.print("Nickname: ");
@@ -100,7 +117,9 @@ public class Main {
         String name = reader.next();
         System.out.println(videoGame.registerPlayer(nickname, name));
     }
-
+    /**
+     * uiRegisterEnemyToLevel()
+     */
     public void uiRegisterEnemyToLevel(){
         System.out.println("Register enemy");
         System.out.print("Name: ");
@@ -116,7 +135,9 @@ public class Main {
         System.out.println(videoGame.registerEnemyToLevel(name, type, scoreToIncrease, scoreToDecrease, numberLevel));
 
     }
-
+    /**
+     * uiRegisterTreasureToLevel()
+     */
     public void uiRegisterTreasureToLevel(){
         System.out.println("Register treasure");
         System.out.print("Name: ");
@@ -131,7 +152,9 @@ public class Main {
         int quantity = reader.nextInt();
         System.out.println(videoGame.registerTreasureToLevel(name, url, scoreToIncrease, numberLevel, quantity));
     }
-
+    /**
+     * uiModifyScorePlayer()
+     */
     public void uiModifyScorePlayer(){
         System.out.println("Modify score");
         System.out.print("Nickname: ");
@@ -140,50 +163,66 @@ public class Main {
         int score = reader.nextInt();
         System.out.println(videoGame.modifyScorePlayer(nickname, score));
     }
-
+    /**
+     * uiTryLevelUp()
+     */
     public void uiTryLevelUp(){
         System.out.println("Level up");
         System.out.print("Nickname: ");
         String nickname = reader.next();
         System.out.println(videoGame.tryLevelUp(nickname));
     }
-
+    /**
+     * uiTreasuresAndEnemiesOfALevel()
+     */
     public void uiTreasuresAndEnemiesOfALevel(){
         System.out.println("Consult treasures and enemies of a level");
         System.out.print("Level: ");
         int numberLevel = reader.nextInt();
         System.out.println(videoGame.treasuresAndEnemiesOfALevel(numberLevel));
     }
-
+    /**
+     * uiTreasureInAllLevels()
+     */
     public void uiTreasureInAllLevels(){
         System.out.println("Consult quantities of a treasure");
         System.out.print("Treasure: ");
         String nameTreasure = reader.next();
         System.out.println(videoGame.treasureInAllLevels(nameTreasure));
     }
-
+    /**
+     * uiEnemyTypeOnAllLevels()
+     */
     public void  uiEnemyTypeOnAllLevels(){
         System.out.println("Consult quantities of a type enemy");
         System.out.println("Enemy type: ");
         String enemyType = reader.next();
-        System.out.println(videoGame.EnemyTypeOnAllLevels(enemyType));
+        System.out.println(videoGame.enemyTypeOnAllLevels(enemyType));
     }
-
+    /**
+     * uiMostRepeatedTreasure()
+     */
     public void uiMostRepeatedTreasure(){
         System.out.println("Consult most repeated treasure");
         System.out.println(videoGame.mostRepeatedTreasure());
     }
-
+    /**
+     * uiHighestScoringEnemy()
+     */
     public void uiHighestScoringEnemy(){
         System.out.println("Consult enemy with highest scoring");
         System.out.println(videoGame.highestScoringEnemy());
     }
-
+    /**
+     * uiConsonantsNamesEnemies()
+     */
     public void uiConsonantsNamesEnemies(){
         System.out.println("Consult number of consonants of the names of the enemies");
         System.out.println(videoGame.consonantsNamesEnemies());
     }
-
+    /**
+     * uiTopFivePlayers()
+     */
     public void uiTopFivePlayers(){
         System.out.println("Consult top five players");
         System.out.println(videoGame.topFivePlayers());

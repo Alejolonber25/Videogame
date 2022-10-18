@@ -15,7 +15,9 @@ public class VideoGame {
 
     
 
-
+    /**
+     * VideoGame()
+     */
     public VideoGame(){
 
         levels[0] = new Level(1,5,5,3);
@@ -31,7 +33,10 @@ public class VideoGame {
 
 
     }
-
+    /**
+     * setResolution()
+     * @param optionResolution
+     */
     public void setResolution(int optionResolution){
         switch (optionResolution) {
             case 1 -> {
@@ -64,7 +69,12 @@ public class VideoGame {
             }
         }
     }
-
+    /**
+     * registerPlayer()
+     * @param nickname String
+     * @param name String
+     * @return msj String
+     */
     public String registerPlayer(String nickname, String name){
         StringBuilder msj = new StringBuilder();
         Player player = new Player(nickname, name, levels[0]);
@@ -90,7 +100,12 @@ public class VideoGame {
         }
         return msj.toString();
     }
-
+    /**
+     * modifyScorePlayer()
+     * @param nickname String
+     * @param score int
+     * @return msj String
+     */
     public String modifyScorePlayer(String nickname, int score){
         StringBuilder msj = new StringBuilder();
         int posPlayer = searchPosPlayerByNickname(nickname);
@@ -102,7 +117,11 @@ public class VideoGame {
         }
         return msj.toString();
     }
-
+    /**
+     * tryLevelUp()
+     * @param nickname String
+     * @return msj String
+     */
     public String tryLevelUp(String nickname) {
         StringBuilder msj = new StringBuilder();
         int posPlayer = searchPosPlayerByNickname(nickname);
@@ -126,7 +145,15 @@ public class VideoGame {
 
         return msj.toString();
     }   
-
+    /**
+     * registerTreasureToLevel()
+     * @param name String
+     * @param url String
+     * @param scoreToIncrease int
+     * @param numberLevel int
+     * @param quantity int
+     * @return msj String
+     */
     public String registerTreasureToLevel(String name, String url, int scoreToIncrease, int numberLevel, int quantity) {
         StringBuilder msj = new StringBuilder();
         int posLevel = searchPosLevelByNumber(numberLevel);
@@ -158,6 +185,15 @@ public class VideoGame {
         }
         return msj.toString();
     }
+    /**
+     * registerEnemyToLevel()
+     * @param name String
+     * @param type String
+     * @param scoreToIncrease int
+     * @param scoreToDecrease int
+     * @param numberLevel int
+     * @return msj String
+     */
     public String registerEnemyToLevel(String name, String type, int scoreToIncrease, int scoreToDecrease, int numberLevel){
         StringBuilder msj = new StringBuilder();
         int posLevel = searchPosLevelByNumber(numberLevel);
@@ -204,6 +240,12 @@ public class VideoGame {
         return msj.toString();
     }
 
+    /**
+     * treasuresAndEnemiesOfALevel()
+     * @param numberLevel int
+     * @return msj String
+     */
+
     public String treasuresAndEnemiesOfALevel(int numberLevel){
         StringBuilder msj = new StringBuilder();
         int posLevel = searchPosLevelByNumber(numberLevel);
@@ -226,7 +268,11 @@ public class VideoGame {
         }
         return msj.toString();
     }
-
+    /**
+     * treasureInAllLevels()
+     * @param nameTreasure String
+     * @return msj String
+     */
     public String treasureInAllLevels(String nameTreasure){
         int countTreasure = 0;
         StringBuilder msj = new StringBuilder();
@@ -244,8 +290,12 @@ public class VideoGame {
         }
         return msj.toString();
     }
-
-    public String EnemyTypeOnAllLevels(String enemyType){
+    /**
+     * enemyTypeOnAllLevels()
+     * @param enemyType String
+     * @return msj String
+     */
+    public String enemyTypeOnAllLevels(String enemyType){
     StringBuilder msj = new StringBuilder();
     int countEnemies = 0;
         for (Level level: levels) {
@@ -262,7 +312,10 @@ public class VideoGame {
     }
     return msj.toString();
     }
-
+    /**
+     * mostRepeatedTreasure()
+     * @return msj String
+     */
     public String mostRepeatedTreasure(){
         StringBuilder msj = new StringBuilder();
         int[] countTreasures = new int[50];
@@ -291,6 +344,10 @@ public class VideoGame {
         return msj.toString();
     }
 
+    /**
+     * highestScoringEnemy()
+     * @return msj String
+     */
     public String highestScoringEnemy() {
         StringBuilder msj = new StringBuilder();
         Enemy[] enemiesWithScoreMax = new Enemy[10];
@@ -327,7 +384,10 @@ public class VideoGame {
     return msj.toString();
 
     }
-
+    /**
+     * consonantsNamesEnemies()
+     * @return msj String
+     */
     public String consonantsNamesEnemies() {
         StringBuilder namesEnemies = new StringBuilder();
         for (Level level : levels) {
@@ -346,6 +406,10 @@ public class VideoGame {
         return String.valueOf(consonantsNamesEnemies.toString().length());
     }
     
+    /**
+     * topFivePlayers()
+     * @return msj String
+     */
     public String topFivePlayers(){
         StringBuilder msj = new StringBuilder();
         for (int i = 0; i < players.length-1; i++) {
@@ -370,6 +434,10 @@ public class VideoGame {
         return msj.toString();
     }
 
+    /**
+     * addNameTreasure()
+     * @param name String
+     */
     public void addNameTreasure(String name){
         boolean isFound = false;
         for (int i = 0; i < namesTreasures.length && !isFound; i++) {
@@ -387,6 +455,12 @@ public class VideoGame {
             }
         }
     }
+
+    /**
+     * searchPosLevelByNumber()
+     * @param numberLevel String
+     * @return posLevel int
+     */
     public int searchPosLevelByNumber(int numberLevel){
         int posLevel = -1;
         boolean isFound = false;
@@ -398,6 +472,12 @@ public class VideoGame {
         }
         return posLevel;
     }
+
+    /**
+     * searchPosPlayerByNickname()
+     * @param nickname String
+     * @return posPlayer int
+     */
 
     public int searchPosPlayerByNickname(String nickname){
         int posPlayer = -1;

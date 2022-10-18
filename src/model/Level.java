@@ -10,6 +10,13 @@ public class Level {
     private Enemy[] enemies;
     private String difficulty;
 
+    /**
+     * Level()
+     * @param number int
+     * @param pointsForNextLevel int
+     * @param quantitytreasures int
+     * @param quantityEnemies int
+     */
     public Level(int number, int pointsForNextLevel, int quantitytreasures, int quantityEnemies){
         this.number = number;
         this.pointsForNextLevel = pointsForNextLevel;
@@ -17,22 +24,38 @@ public class Level {
         enemies = new Enemy[quantityEnemies];
     }
 
+    /**
+     * getPointsForNextLevel()
+     * @return pointsForNextLevel int
+     */
     public int getPointsForNextLevel(){
         return pointsForNextLevel;
     }
-
+    /**
+     * getNumber()
+     * @return this.number int
+     */
     public int getNumber(){
         return this.number;
     }
-
+    /**
+     * getTreasures()
+     * @return this.treasures Treasure[]
+     */
     public Treasure[] getTreasures(){
         return this.treasures;
     }
-
+    /**
+     * getEnemies()
+     * @return this.enemies Enemy[]
+     */
     public Enemy[] getEnemies(){
         return this.enemies;
     }
-
+    /**
+     * getDifficulty()
+     * @return this.difficulty String
+     */
     public String getDifficulty(){
         // Update Difficulty
         int scoreToIncreaseTreasures = 0;
